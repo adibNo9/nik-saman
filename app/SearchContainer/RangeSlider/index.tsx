@@ -1,16 +1,7 @@
-import { ChangeEvent, FocusEvent } from "react";
+import { FocusEvent } from "react";
 
+import { IRangeProps } from "../types";
 import styles from "./styles.module.scss";
-
-interface IProps {
-  step: number;
-  min: number;
-  max: number;
-  minValue: number;
-  maxValue: number;
-  handleMinChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleMaxChange: (event: ChangeEvent<HTMLInputElement>) => void;
-}
 
 const RangeSlider = ({
   step,
@@ -20,7 +11,7 @@ const RangeSlider = ({
   maxValue,
   handleMinChange,
   handleMaxChange,
-}: IProps) => {
+}: IRangeProps) => {
   const handleFocus = (event: FocusEvent<HTMLInputElement>) =>
     event.target.select();
 
