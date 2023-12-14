@@ -18,6 +18,14 @@ const SearchContainer = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState("");
   const [data, setData] = useState<IProduct[]>();
+  const [filter, setFilter] = useState("");
+
+  const changeFilterHandler = (value: { min: number; max: number }) => {
+    data?.filter(
+      (item) =>
+        value.min < parseInt(item.price) && value.max > parseInt(item.price)
+    );
+  };
 
   useEffect(() => {
     searchValue.length > 0 &&
@@ -43,7 +51,9 @@ const SearchContainer = () => {
   return (
     <>
       <SearchInput onOpen={handleOpen} onSubmit={searchHandler} />
-      {isModalOpen && <FilterModal onClose={handleClose} />}
+      {isModalOpen && (
+        <FilterModal onClose={handleClose} onFilter={changeFilterHandler} />
+      )}
       <Products data={data} />
     </>
   );

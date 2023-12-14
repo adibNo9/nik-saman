@@ -1,28 +1,26 @@
-import { ChangeEvent, FocusEvent, useState } from "react";
+import { ChangeEvent, FocusEvent } from "react";
 
 import styles from "./styles.module.scss";
 
-const RangeSlider = () => {
-  const step = 1;
-  const min = 0;
-  const max = 10000;
-  const [minValue, setMinValue] = useState(min);
-  const [maxValue, setMaxValue] = useState(max);
+interface IProps {
+  step: number;
+  min: number;
+  max: number;
+  minValue: number;
+  maxValue: number;
+  handleMinChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleMaxChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
 
-  const handleMinChange = (event: ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const value = parseFloat(event.target.value);
-    const newMinVal = Math.min(value, maxValue);
-    newMinVal >= 0 && newMinVal <= max && setMinValue(newMinVal);
-  };
-
-  const handleMaxChange = (event: ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const value = parseFloat(event.target.value);
-    const newMaxVal = Math.max(value, minValue);
-    newMaxVal >= 0 && newMaxVal <= max && setMaxValue(newMaxVal);
-  };
-
+const RangeSlider = ({
+  step,
+  min,
+  max,
+  minValue,
+  maxValue,
+  handleMinChange,
+  handleMaxChange,
+}: IProps) => {
   const handleFocus = (event: FocusEvent<HTMLInputElement>) =>
     event.target.select();
 
