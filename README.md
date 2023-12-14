@@ -2,7 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, run the json server:
+
+```bash
+npx json-server --watch data/db.json --port 8080
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
