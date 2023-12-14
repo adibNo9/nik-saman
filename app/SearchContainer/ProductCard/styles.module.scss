@@ -1,0 +1,21 @@
+.card-wrapper {
+    img {
+        @apply rounded-2xl w-full;
+    }
+    h2 {
+        @apply font-bold my-0;
+    }
+    .price {
+        @apply font-bold text-sm;
+    }
+    .details-wrapper {
+        span {
+            &:last-child {
+            @apply border-none;
+        }
+            @apply text-sm border-r border-solid border-black pr-1;
+        }
+        @apply flex gap-1 mb-1 flex-wrap;
+    }
+    @apply flex flex-col w-full max-w-[400px];
+}

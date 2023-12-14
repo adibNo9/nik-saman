@@ -1,0 +1,7 @@
+.back-btn {
+    @apply text-black flex gap-2;
+}
+
+.apply-btn {
+    @apply text-white bg-[#012a43] w-full m-auto rounded-full border-none py-2 font-bold focus:opacity-90;
+}

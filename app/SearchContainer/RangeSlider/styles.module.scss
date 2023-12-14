@@ -1,0 +1,86 @@
+$thumb-size: 16px;
+
+@mixin track-styles {
+  @apply appearance-none bg-transparent border-transparent;
+}
+
+@mixin thumb-styles {
+  @apply appearance-none w-4 h-4 rounded-none border-none cursor-grab bg-[#fecd07] active:cursor-grabbing;
+  pointer-events: all;
+}
+
+.wrapper {
+  @apply relative flex items-center my-4 mx-4 h-8;
+}
+
+.input-wrapper {
+  @apply absolute h-4;
+  width: calc(100% + #{$thumb-size});
+  margin: 0 calc(#{$thumb-size} / -2);
+}
+
+.control-wrapper {
+  @apply absolute h-4 w-full;
+}
+
+.input {
+  @apply absolute w-full pointer-events-none appearance-none h-full opacity-0 z-20 p-0;
+
+  &::-ms-track {
+    @include track-styles;
+  }
+
+  &::-moz-range-track {
+    @include track-styles;
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    @include track-styles;
+  }
+
+  &::-ms-thumb {
+    @include thumb-styles;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb-styles;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb-styles;
+  }
+};
+
+.rail {
+  @apply absolute w-full top-1/2 -translate-y-1/2 h-1.5 rounded-sm bg-slate-300;
+}
+
+.inner-rail {
+  @apply absolute h-full bg-[#fecd07] opacity-50;
+}
+
+.control {
+  @apply w-4 h-4 absolute rounded-full bg-[#fecd07] top-1/2 z-10 -translate-y-1/2;
+  margin-left: calc(#{$thumb-size} / -2);
+}
+
+.text-input-wrapper {
+  .dash {
+    @apply text-slate-300 text-2xl;
+  }
+  .text-input {
+    span {
+      @apply absolute left-3 top-1/2 text-black -translate-y-1/2;
+    }
+input {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+  @apply appearance-none m-auto w-28 sm:w-40 text-center border-0 outline-none rounded-full;
+}
+    @apply relative py-2 border border-slate-300 rounded-full w-auto;
+  }
+  @apply flex justify-between items-center w-full mb-2
+}

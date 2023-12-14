@@ -1,0 +1,28 @@
+.search-input-wrapper {
+    @apply relative w-full h-auto my-4;
+    .form-wrapper {
+        .input-wrapper {
+            .icon {
+                @apply absolute z-10 left-4 top-4 w-7 h-7 text-black;
+            }
+            label {
+                @apply absolute left-14 z-10 block text-black font-bold text-xs sm:text-sm;
+            }
+            input {
+                &::placeholder {
+                    @apply text-xs absolute left-14 top-8;
+                }
+                @apply absolute pl-14 pr-6 h-full rounded-full shadow-taskShadow bg-transparent hover:bg-[#f4f4f5] focus:bg-[#f4f4f5] left-0 top-0 w-full pt-10 pb-4 border-none sm:text-sm  appearance-none  mr-auto text-gray-700 leading-tight focus:outline-none;
+            }
+            @apply relative rounded-full h-14 py-2;
+        }
+        @apply bg-white rounded w-full h-14;
+    }
+    .filter-btn {
+        .icon {
+            @apply w-4 h-4;
+        }
+        @apply flex items-center justify-center absolute right-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer border-none shadow-taskShadow rounded-full bg-white w-8 h-8;
+     
+    }
+}
