@@ -39,15 +39,12 @@ const SearchContainer = () => {
     };
 
     const changeFilterHandler = (value: { min: number; max: number }) => {
-      console.log("first", value.min, value.max);
       const filteredData = data?.filter(
         (item) =>
           value.min < parseInt(item.price) && value.max > parseInt(item.price)
       );
 
       setData(filteredData);
-
-      console.log(data);
     };
 
     useEffect(() => {
